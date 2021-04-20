@@ -3,12 +3,12 @@ const express = require('express');
 const router = express.Router();
 
 router.get(`/`, async (req, res) =>{
-    const categoryList = await Category.find();
+    const categoryListWise = await Category.find();
 
     if(!categoryList) {
         res.status(500).json({success: false})
     } 
-    res.status(200).send(categoryList);
+    res.status(200).send(categoryListWise);
 })
 
 router.get('/:id', async(req,res)=>{
